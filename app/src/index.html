@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MetaCoin | Truffle Webpack Demo w/ Frontend</title>
+    <title>Voting Ðapp</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet">
   </head>
-  <style>
-    input {
-      display: block;
-      margin-bottom: 12px;
-    }
-  </style>
-  <body>
-    <h1>MetaCoin — Example Truffle Dapp</h1>
-    <p>You have <strong class="balance">loading...</strong> META</p>
-
-    <h1>Send MetaCoin</h1>
-
-    <label for="amount">Amount:</label>
-    <input type="text" id="amount" placeholder="e.g. 95" />
-
-    <label for="receiver">To address:</label>
-    <input
-      type="text"
-      id="receiver"
-      placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
-    />
-
-    <button onclick="App.sendCoin()">Send MetaCoin</button>
-
-    <p id="status"></p>
-    <p>
-      <strong>Hint:</strong> open the browser developer console to view any
-      errors and warnings.
-    </p>
-    <script src="index.js"></script>
+  <body class="container">
+	<h1>Voting Ðapp</h1>
+	<div id="address"></div>
+	<div class="table-responsive">
+		<table class="table table-bordered table-vote">
+			<thead>
+				<tr>
+					<th>Candidate</th>
+					<th>Votes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Satoshi</td>
+					<td id="candidate-1"></td>
+				</tr>
+				<tr>
+					<td>Vitalik</td>
+					<td id="candidate-2"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="msg"></div>
+	</div>
+	<form id="vote-form">
+		<select id="candidate" class="candidate-select">
+			<option value="Satoshi">Satoshi</option>
+			<option value="Vitalik">Vitalik</option>
+		</select>
+		<a href="#" onclick="vote()" class="btn btn-primary btn-vote">Vote</a>
+	</form>
   </body>
 </html>

@@ -10,6 +10,15 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin([{ from: "./src/index.html", to: "index.html" }]),
+	new CopyWebpackPlugin([{ from: "./src/css/main.css", to: "css/main.css" }]),
   ],
   devServer: { contentBase: path.join(__dirname, "dist"), compress: true },
+  module: {
+    rules: [
+		{
+		  test: /\.css$/,
+		  use: ['style-loader', 'css-loader']
+		}
+	]
+  }
 };
